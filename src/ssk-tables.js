@@ -9,16 +9,14 @@
 
 NodeList.prototype.forEach = Array.prototype.forEach;
 
-document.querySelectorAll('.ssk-table').forEach(table => {
-
-	console.log(table.rows[0].cells[0].tagName);
+document.querySelectorAll('.ssk-table').forEach(table => { 
 
 	// If the first row is table header
 	if(table.rows[0].cells[0].tagName == "TH") {
 
 		let tableHeaders = [];
  
-		for (let j = 0, col; col = table.rows[0].cells[j]; j++)
+		for (let j = 0, col; col = table.rows[0].cells[j]; j++) 
 			tableHeaders.push( (col.innerText || col.textContent).trim() );
 
 

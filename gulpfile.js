@@ -5,7 +5,8 @@ const 	gulp = require('gulp'),
 		rename = require('gulp-rename'),
 		postcss = require('gulp-postcss'),
 		csso = require('gulp-csso'),
-		uglify = require('gulp-uglifyes');
+		uglify = require('gulp-uglifyes'),
+		babel = require('gulp-babel');
 
 const paths = {
 	rawCSS: 'src/ssk-tables.css',
@@ -20,32 +21,36 @@ const postcssPlugins = [
 
 gulp.task('css', function(c) {
   
-  	pump([ 
-  		gulp.src(paths.rawCSS),
+	pump([ 
+		gulp.src(paths.rawCSS),
 
-	    postcss( postcssPlugins ),
-	    gulp.dest(paths.output),
+		postcss( postcssPlugins ),
+		gulp.dest(paths.output),
 
 		csso(),
-	    rename({
-	            suffix: '.min'
-	        }),
-	    gulp.dest(paths.output)
+		rename({
+				suffix: '.min'
+			}),
+		gulp.dest(paths.output)
 	], c);
 });
 
 gulp.task('js', function(c) {
 
 	pump([ 
-  		gulp.src(paths.rawJS),
+		gulp.src(paths.rawJS),
 
-	    gulp.dest(paths.output),
+		babel({
+			presets: ['es2015']
+		}),
+
+		gulp.dest(paths.output),
 
 		uglify(),
-	    rename({
-	            suffix: '.min'
-	        }),
-	    gulp.dest(paths.output)
+		rename({
+				suffix: '.min'
+			}),
+		gulp.dest(paths.output)
 	], c);
 });
 
