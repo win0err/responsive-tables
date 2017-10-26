@@ -1,0 +1,51 @@
+/*
+ * SSK Responsive Tables (https://github.com/win0err/ssk-tables)
+ * Copyright (c) 2017 Sergei Kolesnikov
+ *
+ * Licensed under the MIT license (https://github.com/win0err/ssk-tables/blob/master/LICENSE)
+ */
+@charset "UTF-8";
+
+@custom-media --breakpoint (min-width: 480px);
+
+.ssk-table {
+
+	& th {
+		display: none; 
+	}
+
+	& td {
+
+		display: block; 
+
+		&:before {
+			content: attr(data-label) ": ";
+			font-weight: bold;
+
+			display: inline-block;
+			
+			@media screen and (--breakpoint) {
+				display: none;
+			}
+		}
+
+		&:last-child {
+			&:after {
+				content: " ";
+				display: block;
+
+				@media screen and (--breakpoint) {
+					display: none; 
+				}
+			}
+		}
+	}
+
+	& th, 
+	& td {
+
+		@media screen and (--breakpoint) {
+			display: table-cell;
+		}
+	}
+}
