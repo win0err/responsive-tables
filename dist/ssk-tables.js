@@ -1,4 +1,3 @@
-"use strict";
 /*
  * SSK Responsive Tables (https://github.com/win0err/ssk-tables)
  * Copyright (c) 2017 Sergei Kolesnikov
@@ -6,7 +5,7 @@
  * Licensed under the MIT license (https://github.com/win0err/ssk-tables/blob/master/LICENSE)
  */
 
-"use scrict";
+"use strict";
 
 NodeList.prototype.forEach = Array.prototype.forEach;
 

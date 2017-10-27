@@ -5,7 +5,7 @@
  * Licensed under the MIT license (https://github.com/win0err/ssk-tables/blob/master/LICENSE)
  */
 
-"use scrict";
+"use strict";
 
 NodeList.prototype.forEach = Array.prototype.forEach;
 
