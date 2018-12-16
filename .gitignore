@@ -1,8 +1,8 @@
 .DS_Store
 .idea/
-.sass-cache/
-*.css.map
+.vscode/
 node_modules/
 .npm
 .env
 package-lock.json
+yarn.lock
