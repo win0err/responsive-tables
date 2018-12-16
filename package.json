@@ -1,12 +1,12 @@
 {
-  "name": "ssk-tables",
+  "name": "responsive-tables",
   "version": "1.0.0",
-  "description": "Simple JS making tables responsive",
+  "description": "Simple JS makes tables responsive",
   "main": "gulpfile.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/win0err/ssk-tables.git"
+    "url": "git+https://github.com/win0err/responsive-tables.git"
   },
   "keywords": [
     "tables",
@@ -16,20 +16,23 @@
   "author": "Sergei Kolesnikov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/win0err/ssk-tables/issues"
+    "url": "https://github.com/win0err/responsive-tables/issues"
   },
-  "homepage": "https://iamawesomeguy.ru/projects/ssk-tables/",
+  "homepage": "https://iamawesomeguy.ru/projects/responsive-tables/",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-csso": "^3.0.0",
-    "gulp-postcss": "^7.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglifyes": "^0.1.2",
-    "postcss": "^6.0.8",
-    "postcss-cssnext": "^3.0.2",
-    "pump": "^1.0.2"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-terser": "^1.1.6",
+    "postcss": "^7.0.6",
+    "postcss-modules": "^1.4.1",
+    "postcss-preset-env": "^6.5.0"
   }
 }

@@ -1,64 +1,53 @@
-'use strict';
+'use strict'
 
-const 	gulp = require('gulp'),
-		pump = require('pump'),
-		rename = require('gulp-rename'),
-		postcss = require('gulp-postcss'),
-		csso = require('gulp-csso'),
-		uglify = require('gulp-uglifyes'),
-		babel = require('gulp-babel');
+const gulp       = require('gulp'),
+      rename     = require('gulp-rename'),
+      postcss    = require('gulp-postcss'),
+      terser     = require('gulp-terser'),
+      babel      = require('gulp-babel'),
+      sourcemaps = require('gulp-sourcemaps'),
+      plumber    = require('gulp-plumber')
 
 const paths = {
-	rawCSS: 'src/ssk-tables.css',
-	rawJS: 'src/ssk-tables.js',
+	css: 'src/*.css',
+	js: 'src/*.js',
 	output: 'dist',
-	watch: 'src/ssk-tables.{css,js}'
-};
+	watch: 'src/responsive-tables.{css,js}'
+}
 
 const postcssPlugins = [
-	require('postcss-cssnext'),
-];
+	require('postcss-preset-env')({stage: 0}),
+	require('cssnano')
+]
 
-gulp.task('css', function(c) {
-  
-	pump([ 
-		gulp.src(paths.rawCSS),
-
-		postcss( postcssPlugins ),
-		gulp.dest(paths.output),
-
-		csso(),
-		rename({
+gulp.task('css', () => {
+	return gulp.src(paths.css)
+		.pipe(plumber())
+		.pipe(sourcemaps.init())
+		.pipe(postcss(postcssPlugins))
+		.pipe(
+			rename({
 				suffix: '.min'
-			}),
-		gulp.dest(paths.output)
-	], c);
-});
+			}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.output))
+})
 
-gulp.task('js', function(c) {
+gulp.task('js', () => {
+	return gulp.src(paths.js)
+		.pipe(plumber())
+		.pipe(sourcemaps.init())
+		.pipe(babel())
+		.pipe(terser())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.output))
+})
 
-	pump([ 
-		gulp.src(paths.rawJS),
+gulp.task('default', gulp.parallel([ 'js', 'css' ]))
 
-		babel({
-			presets: ['es2015']
-		}),
-
-		gulp.dest(paths.output),
-
-		uglify(),
-		rename({
-				suffix: '.min'
-			}),
-		gulp.dest(paths.output)
-	], c);
-});
-
-gulp.task('default', function() {
-	gulp.start(['js', 'css']);
-});
-
-gulp.task('watch', function() {
-
-	gulp.watch(paths.watch, ['js', 'css']);
-});
+gulp.task('watch', function () {
+	gulp.watch(paths.watch, gulp.parallel([ 'js', 'css' ]))
+})
