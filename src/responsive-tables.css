@@ -1,14 +1,14 @@
 /*
- * SSK Responsive Tables (https://github.com/win0err/ssk-tables)
- * Copyright (c) 2017 Sergei Kolesnikov
+ * Responsive Tables (https://github.com/win0err/responsive-tables)
+ * Copyright (c) 2017—2018 Sergei Kolesnikov
  *
- * Licensed under the MIT license (https://github.com/win0err/ssk-tables/blob/master/LICENSE)
+ * Licensed under the MIT license (https://github.com/win0err/responsive-tables/blob/master/LICENSE)
  */
 @charset "UTF-8";
 
 @custom-media --breakpoint (min-width: 480px);
 
-.ssk-table {
+.responsive-table-js {
 
 	& th {
 		display: none; 
@@ -19,7 +19,7 @@
 		display: block; 
 
 		&:before {
-			content: attr(data-label) ": ";
+			content: attr(data-responsive-tables-label) ": ";
 			font-weight: bold;
 
 			display: inline-block;
