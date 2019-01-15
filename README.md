@@ -1,5 +1,5 @@
 # Responsive Tables JS
-A simple set of JavaScript and CSS, through which your tables will look good on mobile devices. See [the demo](https://raw.githubusercontent.com/win0err/responsive-tables/master/demo/index.html). 
+A simple set of JavaScript and CSS, through which your tables will look good on mobile devices. See [the demo](https://win0err.github.io/responsive-tables/). 
 
 ## Installation
 First you need to download [responsive-tables.min.js](https://raw.githubusercontent.com/win0err/responsive-tables/master/dist/responsive-tables.min.js) and [responsive-tables.min.css](https://raw.githubusercontent.com/win0err/responsive-tables/master/dist/responsive-tables.min.css) or the archive of [the latest release](https://github.com/win0err/responsive-tables/releases/latest) containing these files.
